@@ -42,14 +42,14 @@
           <li class="nav-item {% if nav_menu == 'image' %}active{% endif %} ">
             <a class="nav-link" href="/news/images">
               <i class="material-icons">image</i>
-              <p>카카오 이미지 검색 결과</p>
+              <p>Rest API 설명서</p>
             </a>
           </li>
 
           <li class="nav-item ">
-            <a class="nav-link" href="#0">
+            <a class="nav-link" href="/news/rest">
               <i class="material-icons">menu_book</i>
-              <p>카카오 서적 검색 결과</p>
+              <p>실제 REST API 사용하기</p>
             </a>
           </li>
         </ul>
@@ -70,25 +70,6 @@
           </button>
           <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
-               {% if current_user.is_authenticated %}
-              <li>
-                안녕하세요. {{ current_user.name }} 회원님! &nbsp;
-              </li>
-              <li style="margin-right: 1.0em">
-                  <a href="/auth/my_page">나의 정보</a>
-              </li>
-              <li>
-                 <a href="/auth/logout">로그아웃</a>
-              </li>
-              {% else %}
-              <li style="margin-right: 1.0em">
-                <a href="/auth/login">로그인</a>
-              </li>
-              <li>
-                <a href="/auth/my_page">회원 가입</a>
-              </li>
-              {% endif %}
-
               <li class="nav-item">
                 <a class="nav-link" href="#pablo">
                   <i class="material-icons">notifications</i> Notifications

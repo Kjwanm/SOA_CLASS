@@ -1,7 +1,23 @@
 {% extends 'template.html' %}
 
 {% block content %}
-    {% for image_url in images %}
-        <img src="{{image_url}}" />
-    {% endfor %}
+        <p>사용 설명서</p></br>
+        <p>프로젝트명 : 맹모삼천지교 </p>
+        <p>설명 : 경기 남부권의 학교, 학원정보를 얻어오는 API 입니다.</p>
+        <p>출력 되는 데이터 값 : JSON 형식으로 제공 </p>
+        <p>sigun : 시, emd : 읍면동구, types : 구분, named: 이름, daepyo: 대표자이름, telno : 전화번호, address : 주소, lat : 위도, loat : 경도 </p>
+        <p>옵션 필요값 : 이름 :named=원하는이름, 시 : sigun=원하는시, 읍면동 : emd=원하는읍면동</p>
+        <p>example : 시이름으로 정보검색 = baseurl/resource_location/수원시</p>
+        <p>1. POST : </p>
+        <p>학원/학교 정보 등록 : baseurl/resource_creation/옵션</p>
+        <p>2. GET : </p>
+        <p>학원,학교 이름을 넣어 주변 5km내의 교육시설(학교,학원) 검색 : baseurl/resource_distance/이름</p>
+        <p>이름으로 학교, 학원 정보 검색 : baseurl/resource/이름</p>
+        <p>시 이름으로 학교, 학원 정보 검색 : baseurl/resource_location/시이름</p>
+        <p>읍면동으로 학교, 학원 정보 검색(학교 미지원) : baseurl/resource_emd/읍면동구이름</p>
+        <p>3. UPDATE : </p>
+        <p>이름으로 학교/학원 검색 후 데이터 수정 : baseurl/resource/옵션</p>
+        <p>4. DELETE : </p>
+        <p>이름으로 학교/학원 검색 후 데이터 삭제 : baseurl/resource/이름</p>
+        <p>저희가 가진 모든 데이터 출력 : baseurl/resource/resource_check</p>
 {% endblock %}

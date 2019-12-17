@@ -1,0 +1,29 @@
+{% extends 'template.html' %}
+
+{% block content %}
+        <p>Rest를 실제로 사용해봅시다.(get만 가능)</p></br>
+        <p>GET : </p>
+        <p>학원,학교 이름을 넣어 주변 5km내의 교육시설(학교,학원) 검색 : baseurl/resource_distance/이름</p>
+        <form method="get" action="http://localhost:8777/news/example">
+                <p><lablel>학원이름 입력 (ex : 높은꿈학원) : <input type="text" name="named"> </lablel></p>
+                <p><input type="submit" value="submit"></p>
+        </form>
+
+        <p>시군이름을 넣어 교육시설(학교,학원) 검색 : baseurl/resource_location/시군</p>
+        <form method="get" action="http://localhost:8777/news/location">
+                <p><lablel>학원이름 입력 (수원시, 화성시, 오산시, 평택시, 성남시) : <input type="text" name="sigun"> </lablel></p>
+                <p><input type="submit" value="submit"></p>
+        </form>
+
+        <p>읍면동으로 학원 정보 검색(학교 미지원) : baseurl/resource_emd/읍면동구이름</p>
+        <form method="get" action="http://localhost:8777/news/emd">
+                <p><lablel>읍면동 입력 (권선구, 팔달구, 분당구 등등) : <input type="text" name="emd"> </lablel></p>
+                <p><input type="submit" value="submit"></p>
+        </form>
+
+        <p>이름으로 학교, 학원 정보 검색 : baseurl/resource/이름</p>
+        <form method="get" action="http://localhost:8777/news/name">
+                <p><lablel>학원이름 입력 (ex : 높은꿈학원) : <input type="text" name="named"> </lablel></p>
+                <p><input type="submit" value="submit"></p>
+        </form>
+{% endblock %}

@@ -6,16 +6,16 @@
 </head>
 <body>
     <table border="1">
-        <caption>온도 자원 리스트</caption>
+        <caption>보유 데이터 리스트</caption>
         <thead align="center">
             <tr>
-                <td>No.</td> <td>센서 ID</td> <td>온도</td> <td>일시</td> <td>장소</td>
+                <td>시군</td> <td>읍면동 ID</td> <td>타입</td> <td>이름</td> <td>대표</td> <td>전화번호</td> <td>주소</td> <td>위도</td> <td>경도</td>
             </tr>
         </thead>
         <tbody  align="center">
         {% for res in resources %}
             <tr>
-                <td>{{res[0]}}</td> <td>{{res[1]}}</td> <td>{{res[2]}}</td> <td>{{res[3]}}</td> <td>{{res[4]}}</td>
+                <td>{{res[1]}}</td> <td>{{res[2]}}</td> <td>{{res[3]}}</td> <td>{{res[4]}}</td> <td>{{res[5]}}</td><td>{{res[6]}}</td> <td>{{res[7]}}</td> <td>{{res[8]}}</td> <td>{{res[9]}},</td>
             </tr>
         {% endfor %}
         </tbody>

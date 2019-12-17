@@ -1,10 +1,6 @@
 import requests
 from flask import Flask, render_template, request, Blueprint
 
-from keys import KAKAO_REST_KEY
-
-KAKAO_BASE_URL="https://dapi.kakao.com"
-
 news_blueprint = Blueprint('news', __name__)
 
 
@@ -24,24 +20,68 @@ def news_science():
 
 @news_blueprint.route('/images')
 def images():
-    headers = {"Authorization": "KakaoAK " + KAKAO_REST_KEY}
+    return render_template('images.html')
 
-    res2 = requests.get(
-        url=KAKAO_BASE_URL + "/v2/search/image?query=파이썬",
-        headers=headers
+@news_blueprint.route('/rest')
+def rests():
+    return render_template('rest.html')
+
+@news_blueprint.route('/example')
+def examples():
+    res = requests.get(
+        url="http://localhost:8777/resource_distance/" +  request.args.get("named")
     )
-
-    if res2.status_code == 200:
-        docs = res2.json()
-        images = []
-        for image in docs['documents']:
-            images.append(image['image_url'])
-
-        print(images)
-
+    value = None
+    if res.status_code == 200:
+        value = res.json()
     else:
-        print("Error {0}".format(res2.status_code))
+        print("Error {0}".format(res.status_code))
 
     return render_template(
-        'images.html', images=images, nav_menu="image"
+        'example.html', value=value
+    )
+
+@news_blueprint.route('/location')
+def locations():
+    res = requests.get(
+        url="http://localhost:8777/resource_location/" +  request.args.get("sigun")
+    )
+    value = None
+    if res.status_code == 200:
+        value = res.json()
+    else:
+        print("Error {0}".format(res.status_code))
+
+    return render_template(
+        'example.html', value=value
+    )
+
+@news_blueprint.route('/emd')
+def emd():
+    res = requests.get(
+        url="http://localhost:8777/resource_emd/" +  request.args.get("emd")
+    )
+    value = None
+    if res.status_code == 200:
+        value = res.json()
+    else:
+        print("Error {0}".format(res.status_code))
+
+    return render_template(
+        'example.html', value=value
+    )
+
+@news_blueprint.route('/name')
+def name():
+    res = requests.get(
+        url="http://localhost:8777/resource/" +  request.args.get("named")
+    )
+    value = None
+    if res.status_code == 200:
+        value = res.json()
+    else:
+        print("Error {0}".format(res.status_code))
+
+    return render_template(
+        'example.html', value=value
     )
